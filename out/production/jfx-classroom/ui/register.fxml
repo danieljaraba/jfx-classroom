@@ -53,8 +53,8 @@
                         <Font name="Footlight MT Light" size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+                  <PasswordField fx:id="pfSignup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="tfUserSignup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0">
@@ -65,9 +65,9 @@
                      </font>
                   </Label>
                   <Canvas height="50.0" width="50.0" />
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="tfProfilePhoto" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" />
                   <Canvas height="50.0" layoutX="199.0" layoutY="13.0" width="50.0" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #f4a300;" text="Browse" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#actBrowsePhoto" style="-fx-background-color: #f4a300;" text="Browse" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0">
@@ -78,13 +78,13 @@
                      </font>
                   </Label>
                   <Canvas height="50.0" width="50.0" />
-                  <RadioButton mnemonicParsing="false" text="Male  ">
+                  <RadioButton fx:id="rbMale" mnemonicParsing="false" text="Male  ">
                      <toggleGroup>
                         <ToggleGroup fx:id="gender" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Female  " toggleGroup="$gender" />
-                  <RadioButton mnemonicParsing="false" text="Other" toggleGroup="$gender" />
+                  <RadioButton fx:id="rbFemale" mnemonicParsing="false" text="Female  " toggleGroup="$gender" />
+                  <RadioButton fx:id="rbOther" mnemonicParsing="false" text="Other" toggleGroup="$gender" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="90.0" prefWidth="600.0">
@@ -95,11 +95,11 @@
                      </font>
                   </Label>
                   <Canvas height="50.0" width="50.0" />
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <CheckBox mnemonicParsing="false" text="Software Engineering" />
-                        <CheckBox mnemonicParsing="false" text="Telematic Engineering" />
-                        <CheckBox mnemonicParsing="false" text="Industrial Engineering" />
+                        <CheckBox fx:id="cbSoftware" mnemonicParsing="false" text="Software Engineering" />
+                        <CheckBox fx:id="cbTelematic" mnemonicParsing="false" text="Telematic Engineering" />
+                        <CheckBox fx:id="cbIndustrial" mnemonicParsing="false" text="Industrial Engineering" />
                      </children>
                   </VBox>
                </children>
@@ -112,7 +112,7 @@
                      </font>
                   </Label>
                   <Canvas height="50.0" width="50.0" />
-                  <DatePicker />
+                  <DatePicker fx:id="dpSignup" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0">
@@ -123,14 +123,14 @@
                      </font>
                   </Label>
                   <Canvas height="50.0" width="50.0" />
-                  <ChoiceBox prefWidth="150.0" />
+                  <ChoiceBox fx:id="chbSignup" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #f4a300;" text="Sign in" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#actBackSignin" style="-fx-background-color: #f4a300;" text="Sign in" textFill="WHITE" />
                   <Canvas height="50.0" width="50.0" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #f4a300;" text="Create account" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#actCreateAccount" style="-fx-background-color: #f4a300;" text="Create account" textFill="WHITE" />
                </children>
             </HBox>
          </children>
