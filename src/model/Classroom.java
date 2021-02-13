@@ -14,4 +14,8 @@ public class Classroom {
         UserAccount account = new UserAccount(user, password, photoUrl, gender, career, birthday, favoriteBrwsr);
         accounts.add(account);
     }
+
+    public ArrayList<UserAccount> getAccounts(){
+        return accounts;
+    }
 }
