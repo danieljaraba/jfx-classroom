@@ -188,16 +188,16 @@ public class ClassroomGUI {
     @FXML
     public void actCreateAccount(ActionEvent event) throws Exception{
         try{
-            String user = "";
-            if(tfUserSignup.getText() != ""){
+            String user = null;
+            if(!tfUserSignup.getText().equals("")){
                 user = tfUserSignup.getText();
             }
             String password = "";
-            if(pfSignup.getText() != ""){
+            if(!pfSignup.getText().equals("")){
                 password = pfSignup.getText();
             }
             String photoBrwsr = "";
-            if(tfProfilePhoto.getText() != "Invalid file" || tfProfilePhoto.getText() != "" ){
+            if(!(tfProfilePhoto.getText().equals("Invalid file") || tfProfilePhoto.getText().equals(""))){
                 photoBrwsr = tfProfilePhoto.getText();
             }
             RadioButton rbSelected = (RadioButton)gender.getSelectedToggle();
@@ -209,19 +209,24 @@ public class ClassroomGUI {
                 career += "Telematic Engineering ";
             } if(cbIndustrial.isSelected()){
                 career += "Industrial Engineering ";
+            } else{
+                errorAlert();
             }
             String birthday = dpSignup.getValue().toString();
             String favoriteBrwsr = chbSignup.getValue();
 
-            classroom.addUser(user, password, photoBrwsr, txtGender, career, birthday, favoriteBrwsr);
+            if(!(tfUserSignup.getText().equals("")) && !(pfSignup.getText().equals("")) && !(tfProfilePhoto.getText().equals("Invalid file") || tfProfilePhoto.getText().equals("")) && !(career.equals("")) && !(favoriteBrwsr.equals(""))){
+                classroom.addUser(user, password, photoBrwsr, txtGender, career, birthday, favoriteBrwsr);
 
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("Account successfully created.");
-            alert.showAndWait();
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Account successfully created.");
+                alert.showAndWait();
 
-            actSignup(event);
+                actSignup(event);
+            }
+
         } catch(Exception e){
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning Dialog");
@@ -229,6 +234,14 @@ public class ClassroomGUI {
             alert.setContentText("Incorrect information.");
             alert.showAndWait();
         }
+    }
+
+    public void errorAlert(){
+        alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Incorrect information.");
+        alert.showAndWait();
     }
 
     @FXML
